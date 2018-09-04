@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tarea 1 DWEC - Rubén Ángel Rodriguez Leyva</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+	
+		<h1>Tarea 1 DWEC - Rubén Ángel Rodriguez Leyva</h1>
+	
+		<h1>Parte 2:</h1>
+		
+		<h2>1. Pida dos números por teclado e indique si son positivos, negativos o cero.</h2>
+		
+		<script>
+		
+			//Se declaran las variables y se piden sus respectivos valores.
+			var numero1 = prompt("Introduce un número: ");
+			var numero2 = prompt("Introduce el segundo número: ");
+			
+			// Comprobamos si los números lo son realmente.
+				if(isNaN(numero1) || isNaN(numero2)){
+					document.write("No has introducido un número.<br/>");
+			
+				// Si son números comprobamos si son positivos negativos o igual a cero.
+				} else {
+					if(numero1 == 0){
+						document.write("El primer número ("+numero1+") introducido es igual a cero.<br/>");
+					} else if (numero1 > 0){
+						document.write("El primer número ("+numero1+") introducido es positivo.<br/>");
+					} else {
+						document.write("El primer número ("+numero1+") introducido es negativo.<br/>");
+					}
+			
+					if(numero2 == 0){
+						document.write("El segundo número ("+numero2+") introducido es igual a cero.<br/>");
+					} else if (numero2 > 0){
+						document.write("El segundo número ("+numero2+") introducido es positivo.<br/>");
+					} else {
+						document.write("El segundo número ("+numero2+") introducido es negativo.<br/>");
+					}
+				}
+		
+		</script>
+		
+		<h2>2. Realize un programa en JavaScript que compara dos números que se introducen desde teclado usando prompt. Indique cual es mayor, menor o igual. </h2>
+		
+		<script>
+			
+			//Se declaran las variables y se piden sus respectivos valores.
+				var numero1 = prompt("Introduce un número: ");
+				var numero2 = prompt("Introduce el segundo número: ");
+			
+				// Comprobamos si los números lo son realmente.
+				if(isNaN(numero1) || isNaN(numero2)){
+					document.write("No has introducido un número.<br/>");
+			
+				// Si son números comprobamos si son iguales o si uno es mayor que el otro.
+				} else {
+					
+					/* Si se da el caso (que no es probable pero que he realizado yo de que la persona introduzca delante del cero algún signo como 
+					puede ser + o - se tomará como 0, ya que al realizar la prueba con los números -9 y -0 0 +0, el -9 lo consideraba como mayor que el -0.
+					*/
+					if(numero1 == -0 || numero1 == +0){
+						numero1 = 0;
+					}
+					if(numero2 == -0 || numero2 == +0){
+						numero2 = 0;
+					}
+					if(numero1 == numero2){
+						document.write("El número "+numero1+" y el número "+numero2+" introducidos son iguales.<br/>");
+					} else if (numero1 > numero2){
+						document.write("El número "+numero1+" es mayor que el "+numero2+".<br/>");
+					} else {
+						document.write("El número "+numero2+" es mayor que el "+numero1+".<br/>");
+					}
+				
+				}
+		
+		</script>	
+		
+		
+		<h2>3. Muestre en pantalla los números múltiplos de 3 y de 7 desde 1  a 2000.  Realícela con un bucle for y un bucle while. </h2>
+		
+		<script>
+		
+			document.write("<br/>Realícela con un bucle for. <br/><br/>");
+		
+			// Bucle for encargado de suministrar los números del 1 al 2000
+				for(var i = 1; i <= 2000; i++){
+			
+					// Cuando uno de los números suministrados por el bucle for es divisible entre 3 y 7 dando como resultado el resto 0 se muestra por pantalla.
+					if((i % 3) == 0 && (i % 7) == 0)
+					{
+						document.write(i+", ");
+					
+					}
+				}
+		
+		</script>
+		
+		<script>
+		
+			document.write("<br/><br/>Realícela con un bucle while. <br/><br/>");
+			
+				// Declaramos la variable de control.
+				var i = 1;
+
+				// El bucle while suministrará números para comprobar.
+				while(i <= 2000){
+			
+					// Cuando uno de los números suministrados por el bucle for es divisible entre 3 y 7 dando como resultado el resto 0 se muestra por pantalla.
+					if(((i % 3) == 0) && (i % 7) == 0)
+					{
+						document.write(i+", ");
+					
+					}
+				
+					// Se suma uno cada vez que pasa el bucle para que no se convierta en un bulce infinito.
+					i++;
+				}
+		
+		</script>
+		
+		
+		<h2>4. Utilice las operaciones &gt;&gt; y &lt;&lt; (operaciones de desplazamiento de operador) y los normales para realizar la división y multiplicación entre 196 y 32. Muestre el resultado en pantalla. Escriba en el código o en un mensaje en pantalla explicando que sucede.</h2>
+		
+		<script>
+			/* Para realizar la operación tenemos que tener en cuenta que 196 en binario es 11000100, mientras que 32 en binario es 100000
+			siendo la multiplicación de ambos 6272 que en binario es 1100010000000, tenemos que tener en cuenta que 32 se deben de convertir 
+			en 5 ya que 2^5 en potencia de 2, así tenemos que para multiplica 196 por 32 cambiaremos el 32 por un 5, y se desplazarán todos los 
+			dígitos 5 lugares a la izquierda (se añaden 5 ceros).
+			*/
+			document.write("<br/>Para la multiplicación:<br/>");
+			
+			var multiplicacion = 196 << 5;
+			document.write("<br/>Resultado de la multiplicación 196 << 5 es: "+multiplicacion+".<br/>");
+			
+		</script>
+		
+		<script>
+			/* Para realizar la operación tenemos que tener en cuenta que 196 en binario es 11000100, mientras que 32 en binario es 100000
+			siendo la división de ambos 6 que en binario es 110, tenemos que tener en cuenta que que 32 se deben de convertir en 5 ya 
+			que 2^5 en potencia de 2, así tenemos que para dividir 196 entre 32 cambiaremos el 32 por un 5, y se desplazrán todos los dígitos
+			5 lugares a la derecha (se le quitan los 5 últimos dígitos). NOTA: Tener en cuenta de que en este tipo no hay decimales.
+			*/
+			document.write("<br/>Para la división:<br/>");
+			var division = 196 >> 5;
+			document.write("<br/>Resultado de la división 196 >> 5 es: "+division+".<br/><br/>");
+		
+		</script>
+		
+		<script>
+			// Multiplicación normal.
+			document.write("<br/>Para la multiplicación normal:<br/>");
+			var multiplicacion = 196 * 32;
+			document.write("<br/>Resultado de la división 196 * 32 es: "+multiplicacion+".<br/>");
+		
+		</script>
+		
+		<script>
+
+			// División normal.
+			document.write("<br/>Para la división normal:<br/>");
+			var division = 196 / 32;
+			document.write("<br/>Resultado de la división 196 / 32 es: "+division+".<br/>");
+		
+		</script>
+		
+	</body>
+</html>
